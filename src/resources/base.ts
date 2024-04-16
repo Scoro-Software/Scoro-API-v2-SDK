@@ -28,9 +28,9 @@ export abstract class APIClient {
       }
     )
 
-    const data = await response.json()
+    const data: IViewResponse<T> = await response.json()
 
-    return data
+    return data.data
   }
 
   protected async list<T>(
@@ -53,7 +53,7 @@ export abstract class APIClient {
       body: JSON.stringify(body),
     })
 
-    const data = await response.json()
+    const data: IViewResponse<T[]> = await response.json()
     return data.data
   }
 
@@ -79,7 +79,7 @@ export abstract class APIClient {
       }
     )
 
-    const data = await response.json()
+    const data: IViewResponse<T> = await response.json()
     return data.data
   }
 
@@ -91,18 +91,13 @@ export abstract class APIClient {
   }
 
   protected async delete(endpoint: string, id: number): Promise<void> {
-    const response = await fetch(
-      `${this.siteUrl}/api/v2/${endpoint}/delete/${id}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...this.customHeaders,
-        },
-        body: JSON.stringify(this.payload),
-      }
-    )
-    const data = await response.json()
-    return data
+    await fetch(`${this.siteUrl}/api/v2/${endpoint}/delete/${id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...this.customHeaders,
+      },
+      body: JSON.stringify(this.payload),
+    })
   }
 }
