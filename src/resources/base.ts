@@ -15,6 +15,18 @@ export abstract class APIClient {
     this.customHeaders[key] = value
   }
 
+  private validateResponse<T>(response: IViewResponse<T>): void {
+    if (response.errors || response.statusCode !== 200) {
+      throw new Error(
+        JSON.stringify({
+          error: response.errors,
+          statusCode: response.statusCode,
+          messages: response.messages,
+        })
+      )
+    }
+  }
+
   protected async view<T>(endpoint: string, id: number): Promise<T> {
     const response = await fetch(
       `${this.siteUrl}/api/v2/${endpoint}/view/${id}`,
@@ -28,9 +40,10 @@ export abstract class APIClient {
       }
     )
 
-    const data: IViewResponse<T> = await response.json()
+    const res: IViewResponse<T> = await response.json()
+    this.validateResponse(res)
 
-    return data.data
+    return res.data
   }
 
   protected async list<T>(
@@ -53,8 +66,10 @@ export abstract class APIClient {
       body: JSON.stringify(body),
     })
 
-    const data: IViewResponse<T[]> = await response.json()
-    return data.data
+    const res: IViewResponse<T[]> = await response.json()
+    this.validateResponse(res)
+
+    return res.data
   }
 
   protected async update<T>(
@@ -79,8 +94,9 @@ export abstract class APIClient {
       }
     )
 
-    const data: IViewResponse<T> = await response.json()
-    return data.data
+    const res: IViewResponse<T> = await response.json()
+    this.validateResponse(res)
+    return res.data
   }
 
   protected async create<T>(
@@ -91,13 +107,19 @@ export abstract class APIClient {
   }
 
   protected async delete(endpoint: string, id: number): Promise<void> {
-    await fetch(`${this.siteUrl}/api/v2/${endpoint}/delete/${id}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        ...this.customHeaders,
-      },
-      body: JSON.stringify(this.payload),
-    })
+    const response = await fetch(
+      `${this.siteUrl}/api/v2/${endpoint}/delete/${id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...this.customHeaders,
+        },
+        body: JSON.stringify(this.payload),
+      }
+    )
+
+    const res: IViewResponse<unknown> = await response.json()
+    this.validateResponse(res)
   }
 }
