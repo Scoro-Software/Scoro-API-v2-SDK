@@ -1,61 +1,22 @@
-export interface ITimeEntry {
-	timeEntryID?: number;
-	description?: string;
-	title?: string;
-	userID?: number;
-	activityID?: number;
-	invoiceLineID?: number;
-	eventID?: number;
-	eventType?: string;
-	calendarEventID?: number;
-	timeEntryType?: string;
-	startDatetime?: Date;
-	endDatetime?: Date;
-	duration?: string;
-	billableDuration?: string;
-	isCompleted?: number;
-	isConfirmed?: boolean;
-	isBillable?: boolean;
-	completedDatetime?: Date;
-	isLocked?: boolean;
-	permissions?: unknown[];
-	modifiedDate?: Date;
-	isDeleted?: boolean;
-	deletedDate?: Date;
-}
+import { IEvent } from '../../shared/types/event.type'
+import { ITimeEntry } from '../../time-entry/types/time-entry.type'
 
-export interface ITask {
-	isCompleted: number;
-	datetimeCompleted?: Date;
-	assignedTo?: number; // Deprecated
-	relatedUsers?: number[];
-	relatedUsersEmails?: string[];
-	durationActual?: string;
-	startDatetime?: Date;
-	datetimeDue?: Date;
-	status?: string;
-	statusName?: string;
-	timeEntries?: ITimeEntry[];
-	sortOrder?: number;
-	quoteLineID?: number;
-	priorityID?: number;
-	eteID?: number;
-	activityID?: number;
-	activityType?: string;
-	eventID?: number;
-	eventName?: string;
-	description?: string;
-	isPersonal?: boolean;
-	projectID?: number;
-	projectPhaseID?: number;
-	projectName?: string;
-	companyID?: number;
-	companyName?: string;
-	personID?: number;
-	personName?: string;
-	invoiceID?: number;
-	orderID?: number;
-	quoteID?: number;
-	purchaseOrderID?: number;
-	rentOrderID?: number;
+export interface ITask extends IEvent {
+  is_completed: boolean
+  datetime_completed?: string // Datetime format (DATE_ISO8601 - Y-m-d\TH:i:sP)
+  assigned_to?: number // Deprecated
+  related_users: number[]
+  related_users_emails: string[]
+  duration_actual?: string // Time format (HH:ii:ss)
+  start_datetime?: string // Datetime format (DATE_ISO8601 - Y-m-d\TH:i:sP)
+  datetime_due?: string // Datetime format (DATE_ISO8601 - Y-m-d\TH:i:sP)
+  status: 'task_status1' | 'task_status2' | 'task_status3' | 'task_status4'
+  status_name?: string // Available in view request
+  time_entries?: ITimeEntry[] // Array of tasks' time entries, populated only on view requests
+  sortorder?: number
+  quote_line_id?: number
+  priority_id: 1 | 2 | 3 // Priority of the task: 1 -> high, 2 -> normal, 3 -> low
+  ete_id?: number
+  activity_id?: number
+  activity_type?: string // Not filterable
 }
