@@ -5,22 +5,22 @@ export class ContactService extends APIClient {
   async listContacts(
     filters: Record<string, unknown> = {}
   ): Promise<IContact[]> {
-    return this.list<IContact>('contact', filters)
+    return this.list<IContact>('contacts', filters)
   }
 
   async viewContact(id: number): Promise<IContact> {
-    return this.view<IContact>('contact', id)
+    return this.view<IContact>('contacts', id)
   }
 
   async createContact(contact: IContact): Promise<IContact> {
-    return this.create<IContact>('contact', contact)
+    return this.create<IContact>('contacts', contact)
   }
 
   async updateContact(id: number, contact: IContact): Promise<IContact> {
-    return this.update<IContact>('contact', id, contact)
+    return this.update<IContact>('contacts', id, contact)
   }
 
   async deleteContact(id: number): Promise<void> {
-    return this.delete('contact', id)
+    return this.delete('contacts', id)
   }
 }
