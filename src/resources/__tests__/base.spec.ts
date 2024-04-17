@@ -38,7 +38,9 @@ describe('APIClient', () => {
   test('view should fetch and return data', async () => {
     const mockResponse = { id: 1, name: 'John Doe' }
     global.fetch = jest.fn().mockResolvedValue({
-      json: jest.fn().mockResolvedValue({ data: mockResponse }),
+      json: jest
+        .fn()
+        .mockResolvedValue({ statusCode: 200, data: mockResponse }),
     })
 
     const data = await apiClient.callView('users', 1)
@@ -63,7 +65,9 @@ describe('APIClient', () => {
       { id: 2, name: 'John Deere' },
     ]
     global.fetch = jest.fn().mockResolvedValue({
-      json: jest.fn().mockResolvedValue({ data: mockResponse }),
+      json: jest
+        .fn()
+        .mockResolvedValue({ statusCode: 200, data: mockResponse }),
     })
 
     const data = await apiClient.callList('users', { name: 'John' }, 10)
@@ -89,7 +93,9 @@ describe('APIClient', () => {
   test('update should fetch and return data', async () => {
     const mockResponse = { id: 1, name: 'John Doe' }
     global.fetch = jest.fn().mockResolvedValue({
-      json: jest.fn().mockResolvedValue({ data: mockResponse }),
+      json: jest
+        .fn()
+        .mockResolvedValue({ statusCode: 200, data: mockResponse }),
     })
 
     const data = await apiClient.callUpdate('users', 1, { name: 'Jane Doe' })
@@ -114,7 +120,9 @@ describe('APIClient', () => {
   test('create should fetch and return data', async () => {
     const mockResponse = { id: 1, name: 'John Doe' }
     global.fetch = jest.fn().mockResolvedValue({
-      json: jest.fn().mockResolvedValue({ data: mockResponse }),
+      json: jest
+        .fn()
+        .mockResolvedValue({ statusCode: 200, data: mockResponse }),
     })
 
     const data = await apiClient.callCreate('users', { name: 'Jane Doe' })
@@ -138,7 +146,7 @@ describe('APIClient', () => {
 
   test('delete should fetch and return data', async () => {
     global.fetch = jest.fn().mockResolvedValue({
-      json: jest.fn().mockResolvedValue({ data: {} }),
+      json: jest.fn().mockResolvedValue({ statusCode: 200, data: {} }),
     })
 
     await apiClient.callDelete('users', 1)
@@ -153,6 +161,16 @@ describe('APIClient', () => {
         },
         body: JSON.stringify(apiClient.payload),
       }
+    )
+  })
+
+  test('should throw an error if response status is not 200', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue({ statusCode: 400, data: {} }),
+    })
+
+    await expect(apiClient.callList('users')).rejects.toThrow(
+      JSON.stringify({ statusCode: 400 })
     )
   })
 })
