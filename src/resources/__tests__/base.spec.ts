@@ -16,6 +16,10 @@ class MockAPIClient extends APIClient {
   callDelete(endpoint: string, id: number) {
     this.delete(endpoint, id)
   }
+
+  callCustomCallWithouBody(endpoint: string, method: string, id: number) {
+    this.customCallWithouBody(endpoint, method, id)
+  }
 }
 
 describe('APIClient', () => {
@@ -171,6 +175,27 @@ describe('APIClient', () => {
 
     await expect(apiClient.callList('users')).rejects.toThrow(
       JSON.stringify({ statusCode: 400 })
+    )
+  })
+
+  test('customCallWithouBody should make a POST request and validate the response', async () => {
+    const mockResponse = { statusCode: 200, data: {} }
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest.fn().mockResolvedValue(mockResponse),
+    })
+
+    await apiClient.callCustomCallWithouBody('timeEntries', 'setDone', 1)
+
+    expect(fetch).toHaveBeenCalledWith(
+      'https://example.com/api/v2/timeEntries/setDone/1',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...apiClient.customHeaders,
+        },
+        body: JSON.stringify(apiClient.payload),
+      }
     )
   })
 })

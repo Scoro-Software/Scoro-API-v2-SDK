@@ -122,4 +122,25 @@ export abstract class APIClient {
     const res: IViewResponse<unknown> = await response.json()
     this.validateResponse(res)
   }
+
+  protected async customCallWithouBody(
+    endpoint: string,
+    method: string,
+    id: number
+  ): Promise<void> {
+    const response = await fetch(
+      `${this.siteUrl}/api/v2/${endpoint}/${method}/${id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...this.customHeaders,
+        },
+        body: JSON.stringify(this.payload),
+      }
+    )
+
+    const res: IViewResponse<unknown> = await response.json()
+    this.validateResponse(res)
+  }
 }
