@@ -123,11 +123,11 @@ export abstract class APIClient {
     this.validateResponse(res)
   }
 
-  protected async customCallWithouBody(
+  protected async customCallWithouBody<T>(
     endpoint: string,
     method: string,
     id: number
-  ): Promise<void> {
+  ): Promise<T> {
     const response = await fetch(
       `${this.siteUrl}/api/v2/${endpoint}/${method}/${id}`,
       {
@@ -140,7 +140,9 @@ export abstract class APIClient {
       }
     )
 
-    const res: IViewResponse<unknown> = await response.json()
+    const res: IViewResponse<T> = await response.json()
     this.validateResponse(res)
+
+    return res.data
   }
 }
