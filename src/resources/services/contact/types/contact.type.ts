@@ -1,4 +1,4 @@
-import { IAddress } from '../../services/shared/types/address.type'
+import { IAddress } from '../../shared/types/address.type'
 
 export interface IContact {
   contact_id: number
