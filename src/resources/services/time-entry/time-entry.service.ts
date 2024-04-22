@@ -30,6 +30,6 @@ export class TimeEntryService extends APIClient {
   }
 
   async setDone(id: number): Promise<void> {
-    await this.customCallWithouBody('timeEntries', 'setDone', id)
+    await this.customCallWithouBodyAndId('timeEntries', 'setDone', id)
   }
 }

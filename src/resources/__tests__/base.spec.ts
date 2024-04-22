@@ -247,7 +247,10 @@ describe('APIClient', () => {
           'Content-Type': 'application/json',
           ...apiClient.getHeaders,
         },
-        body: JSON.stringify({ ...apiClient.getPayload, done: true }),
+        body: JSON.stringify({
+          ...apiClient.getPayload,
+          request: { done: true },
+        }),
       }
     )
   })

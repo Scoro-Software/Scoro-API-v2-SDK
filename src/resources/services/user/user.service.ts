@@ -16,7 +16,7 @@ export class UserService extends APIClient {
   }
 
   async getUserSettings(id: number): Promise<IUserSettings> {
-    return await this.customCallWithouBody<IUserSettings>(
+    return await this.customCallWithouBodyAndId<IUserSettings>(
       'users',
       'settings',
       id
