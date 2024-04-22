@@ -23,4 +23,12 @@ export class ContactService extends APIClient {
   async deleteContact(id: number): Promise<void> {
     return this.delete('contacts', id)
   }
+
+  async getRelatedObjects(id: number): Promise<IContact> {
+    return this.customCallWithouBodyAndId<IContact>(
+      'contacts',
+      'getRelatedObjects',
+      id
+    )
+  }
 }
