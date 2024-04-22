@@ -49,10 +49,12 @@ export abstract class APIClient {
   protected async list<T>(
     endpoint: string,
     filters: Record<string, unknown> = {},
+    request: Record<string, unknown> = {},
     perPage = 50
   ): Promise<T[]> {
     const body = {
       ...this.payload,
+      request: request,
       filter: filters,
       per_page: perPage,
     }
