@@ -1,4 +1,5 @@
 import { APIClient } from './../../base'
+import { IProjectRelatedObjects } from './types/project-related-object.type'
 import type { IProject } from './types/project.type'
 
 export class ProjectService extends APIClient {
@@ -32,5 +33,13 @@ export class ProjectService extends APIClient {
 
   async findAllBy(query: Record<string, unknown>): Promise<IProject[]> {
     return await this.list<IProject>('projects', query)
+  }
+
+  async getRelatedObjects(id: number): Promise<IProjectRelatedObjects> {
+    return this.customCallWithouBodyAndId<IProjectRelatedObjects>(
+      'projects',
+      'getRelatedObjects',
+      id
+    )
   }
 }

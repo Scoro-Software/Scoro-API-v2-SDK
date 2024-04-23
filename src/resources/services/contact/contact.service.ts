@@ -1,4 +1,5 @@
 import { APIClient } from '../../base'
+import { IContactRelatedObjects } from './types/contact-related-object.type'
 import { IContact } from './types/contact.type'
 
 export class ContactService extends APIClient {
@@ -24,8 +25,8 @@ export class ContactService extends APIClient {
     return this.delete('contacts', id)
   }
 
-  async getRelatedObjects(id: number): Promise<IContact> {
-    return this.customCallWithouBodyAndId<IContact>(
+  async getRelatedObjects(id: number): Promise<IContactRelatedObjects> {
+    return this.customCallWithouBodyAndId<IContactRelatedObjects>(
       'contacts',
       'getRelatedObjects',
       id
