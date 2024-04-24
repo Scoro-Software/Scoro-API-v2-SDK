@@ -2,8 +2,8 @@ import { APIClient } from '../../base'
 import { IComment } from './types/comment.type'
 
 export class CommentService extends APIClient {
-  async listComments(
-    request: Partial<IComment>,
+  async getComments(
+    request: Partial<IComment> = {},
     filters: Record<string, unknown> = {}
   ): Promise<IComment[]> {
     return this.list<IComment>('comments', filters, request)

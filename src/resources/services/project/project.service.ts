@@ -31,7 +31,7 @@ export class ProjectService extends APIClient {
     return await this.list<IProject>('projects', { status: 'completed' })
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IProject[]> {
+  async findAllProjectsBy(query: Record<string, unknown>): Promise<IProject[]> {
     return await this.list<IProject>('projects', query)
   }
 

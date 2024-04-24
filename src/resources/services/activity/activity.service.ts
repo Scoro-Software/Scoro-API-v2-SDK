@@ -25,7 +25,9 @@ export class ActivityService extends APIClient {
     await this.delete('activities', id)
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IActivity[]> {
+  async findAllActivitiesBy(
+    query: Record<string, unknown>
+  ): Promise<IActivity[]> {
     return await this.list<IActivity>('activities', query)
   }
 }

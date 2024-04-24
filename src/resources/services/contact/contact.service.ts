@@ -3,7 +3,7 @@ import { IContactRelatedObjects } from './types/contact-related-object.type'
 import { IContact } from './types/contact.type'
 
 export class ContactService extends APIClient {
-  async listContacts(
+  async getContacts(
     filters: Record<string, unknown> = {}
   ): Promise<IContact[]> {
     return this.list<IContact>('contacts', filters)
@@ -31,5 +31,11 @@ export class ContactService extends APIClient {
       'getRelatedObjects',
       id
     )
+  }
+
+  async findAllContactsBy(
+    filters: Record<string, unknown>
+  ): Promise<IContact[]> {
+    return this.list<IContact>('contacts', filters)
   }
 }

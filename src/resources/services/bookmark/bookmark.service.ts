@@ -6,7 +6,9 @@ export class BookmarkService extends APIClient {
     return await this.list<IBookmark>('bookmarks')
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IBookmark[]> {
+  async findAllBookmarkBy(
+    query: Record<string, unknown>
+  ): Promise<IBookmark[]> {
     return await this.list<IBookmark>('bookmarks', query)
   }
 }

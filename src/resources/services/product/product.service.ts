@@ -22,7 +22,7 @@ export class ProductService extends APIClient {
     await this.delete('products', id)
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IProduct[]> {
+  async findAllProductsBy(query: Record<string, unknown>): Promise<IProduct[]> {
     return await this.list<IProduct>('products', query)
   }
 }

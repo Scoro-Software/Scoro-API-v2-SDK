@@ -23,7 +23,9 @@ export class ProductGroupService extends APIClient {
     return await this.update<IProductGroup>('productGroups', id, data)
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IProductGroup[]> {
+  async findAllProductGroupBy(
+    query: Record<string, unknown>
+  ): Promise<IProductGroup[]> {
     return await this.list<IProductGroup>('productGroups', query)
   }
 }

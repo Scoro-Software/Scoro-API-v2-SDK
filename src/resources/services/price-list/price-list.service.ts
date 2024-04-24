@@ -21,7 +21,9 @@ export class PriceListService extends APIClient {
     return await this.update<IPriceList>('priceLists', id, data)
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IPriceList[]> {
+  async findAllPriceListBy(
+    query: Record<string, unknown>
+  ): Promise<IPriceList[]> {
     return await this.list<IPriceList>('priceLists', query)
   }
 }

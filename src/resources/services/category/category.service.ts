@@ -6,7 +6,9 @@ export class CategoryService extends APIClient {
     return await this.list<ICategory>('categories')
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<ICategory[]> {
+  async findAllCategoriesBy(
+    query: Record<string, unknown>
+  ): Promise<ICategory[]> {
     return await this.list<ICategory>('categories', query)
   }
 }

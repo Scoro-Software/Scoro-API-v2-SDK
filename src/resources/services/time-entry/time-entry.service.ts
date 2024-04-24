@@ -6,6 +6,12 @@ export class TimeEntryService extends APIClient {
     return await this.list<ITimeEntry>('timeEntries')
   }
 
+  async findAllTimeEntriesBy(
+    filters: Record<string, unknown>
+  ): Promise<ITimeEntry[]> {
+    return await this.list<ITimeEntry>('timeEntries', filters)
+  }
+
   async createTimeEntry(data: Partial<ITimeEntry>): Promise<ITimeEntry> {
     return await this.create<ITimeEntry>('timeEntries', data)
   }

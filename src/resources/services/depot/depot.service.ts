@@ -10,7 +10,7 @@ export class DepotService extends APIClient {
     return await this.list<IDepot>('depot')
   }
 
-  async findAllBy(query: Record<string, unknown>): Promise<IDepot[]> {
+  async findAllDepotsBy(query: Record<string, unknown>): Promise<IDepot[]> {
     return await this.list<IDepot>('depot', query)
   }
 }

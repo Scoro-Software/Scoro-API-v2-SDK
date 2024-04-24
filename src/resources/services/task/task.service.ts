@@ -34,7 +34,7 @@ export class TaskService extends APIClient {
     return await this.list<ITask>('tasks', { project_id: projectId })
   }
 
-  async findAllBy(filter: Record<string, unknown>): Promise<ITask[]> {
+  async findAllTasksBy(filter: Record<string, unknown>): Promise<ITask[]> {
     return await this.list<ITask>('tasks', filter)
   }
 }

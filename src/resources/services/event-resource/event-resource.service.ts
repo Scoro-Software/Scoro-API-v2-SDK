@@ -9,4 +9,10 @@ export class EventResourceService extends APIClient {
   async getEventsResources(): Promise<IEventResource[]> {
     return await this.list<IEventResource>('eventsResources')
   }
+
+  async findAllEventsResourcesBy(
+    filters: Record<string, unknown>
+  ): Promise<IEventResource[]> {
+    return await this.list<IEventResource>('eventsResources', filters)
+  }
 }
