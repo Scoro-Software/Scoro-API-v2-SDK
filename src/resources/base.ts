@@ -152,8 +152,13 @@ export abstract class APIClient {
     endpoint: string,
     method: string,
     id: number,
-    body: Record<string, unknown>
+    request: Record<string, unknown>
   ): Promise<T> {
+    const body = {
+      ...this.payload,
+      request: request,
+    }
+
     const response = await fetch(
       `${this.siteUrl}/api/v2/${endpoint}/${method}/${id}`,
       {
@@ -162,7 +167,7 @@ export abstract class APIClient {
           'Content-Type': 'application/json',
           ...this.customHeaders,
         },
-        body: JSON.stringify({ ...this.payload, ...body }),
+        body: JSON.stringify(body),
       }
     )
 
