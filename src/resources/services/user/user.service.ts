@@ -11,12 +11,12 @@ export class UserService extends APIClient {
     return await this.list<IUser>('users')
   }
 
-  async findAllBy(filter: Record<string, unknown>): Promise<IUser[]> {
+  async findAllUsersBy(filter: Record<string, unknown>): Promise<IUser[]> {
     return await this.list<IUser>('users', filter)
   }
 
   async getUserSettings(id: number): Promise<IUserSettings> {
-    return await this.customCallWithouBody<IUserSettings>(
+    return await this.customCallWithouBodyAndId<IUserSettings>(
       'users',
       'settings',
       id

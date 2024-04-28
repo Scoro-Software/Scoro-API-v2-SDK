@@ -1,8 +1,9 @@
 import { APIClient } from '../../base'
+import { IContactRelatedObjects } from './types/contact-related-object.type'
 import { IContact } from './types/contact.type'
 
 export class ContactService extends APIClient {
-  async listContacts(
+  async getContacts(
     filters: Record<string, unknown> = {}
   ): Promise<IContact[]> {
     return this.list<IContact>('contacts', filters)
@@ -22,5 +23,19 @@ export class ContactService extends APIClient {
 
   async deleteContact(id: number): Promise<void> {
     return this.delete('contacts', id)
+  }
+
+  async getRelatedObjects(id: number): Promise<IContactRelatedObjects> {
+    return this.customCallWithouBodyAndId<IContactRelatedObjects>(
+      'contacts',
+      'getRelatedObjects',
+      id
+    )
+  }
+
+  async findAllContactsBy(
+    filters: Record<string, unknown>
+  ): Promise<IContact[]> {
+    return this.list<IContact>('contacts', filters)
   }
 }

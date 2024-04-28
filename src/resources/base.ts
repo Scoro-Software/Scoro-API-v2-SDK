@@ -2,9 +2,9 @@ import type { IApiPayload } from './types/api.type'
 import type { IViewResponse } from './types/response.type'
 
 export abstract class APIClient {
-  siteUrl: string
-  customHeaders: Record<string, string> = {}
-  payload: IApiPayload
+  protected siteUrl: string
+  protected customHeaders: Record<string, string> = {}
+  protected payload: IApiPayload
 
   constructor(siteUrl: string, payload: IApiPayload) {
     this.siteUrl = siteUrl
@@ -49,10 +49,12 @@ export abstract class APIClient {
   protected async list<T>(
     endpoint: string,
     filters: Record<string, unknown> = {},
+    request: Record<string, unknown> = {},
     perPage = 50
   ): Promise<T[]> {
     const body = {
       ...this.payload,
+      request: request,
       filter: filters,
       per_page: perPage,
     }
@@ -123,7 +125,7 @@ export abstract class APIClient {
     this.validateResponse(res)
   }
 
-  protected async customCallWithouBody<T>(
+  protected async customCallWithouBodyAndId<T>(
     endpoint: string,
     method: string,
     id: number
@@ -137,6 +139,87 @@ export abstract class APIClient {
           ...this.customHeaders,
         },
         body: JSON.stringify(this.payload),
+      }
+    )
+
+    const res: IViewResponse<T> = await response.json()
+    this.validateResponse(res)
+
+    return res.data
+  }
+
+  protected async customCallWithBodyAndId<T>(
+    endpoint: string,
+    method: string,
+    id: number,
+    request: Record<string, unknown>
+  ): Promise<T> {
+    const body = {
+      ...this.payload,
+      request: request,
+    }
+
+    const response = await fetch(
+      `${this.siteUrl}/api/v2/${endpoint}/${method}/${id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...this.customHeaders,
+        },
+        body: JSON.stringify(body),
+      }
+    )
+
+    const res: IViewResponse<T> = await response.json()
+    this.validateResponse(res)
+
+    return res.data
+  }
+
+  protected async callRelations<T>(
+    endpoint: string,
+    request: Partial<T>
+  ): Promise<T> {
+    const body = {
+      ...this.payload,
+      request: request,
+    }
+
+    const response = await fetch(`${this.siteUrl}/api/v2/${endpoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...this.customHeaders,
+      },
+      body: JSON.stringify(body),
+    })
+
+    const res: IViewResponse<T> = await response.json()
+    this.validateResponse(res)
+
+    return res.data
+  }
+
+  protected async customCallWithBody<T>(
+    endpoint: string,
+    method: string,
+    request: Partial<T>
+  ): Promise<T> {
+    const body = {
+      ...this.payload,
+      request: request,
+    }
+
+    const response = await fetch(
+      `${this.siteUrl}/api/v2/${endpoint}/${method}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...this.customHeaders,
+        },
+        body: JSON.stringify(body),
       }
     )
 
