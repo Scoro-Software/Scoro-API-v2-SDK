@@ -2,7 +2,7 @@ import { APIClient } from '../../base'
 import { IDocPdf } from '../shared/types/doc-pdf.type'
 import { IQuote } from './types/quote.type'
 
-export class QuotesService extends APIClient {
+export class QuoteService extends APIClient {
   async getQuote(id: number): Promise<IQuote> {
     return await this.view<IQuote>('quotes', id)
   }

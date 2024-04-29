@@ -1,5 +1,5 @@
 import { APIClient } from '../../base'
-import type { INotification } from './types/notifications.type'
+import type { INotification } from './types/notification.type'
 
 export class NotificationService extends APIClient {
   async getNotifications(): Promise<INotification[]> {

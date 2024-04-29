@@ -1,4 +1,4 @@
-export interface ISendLogs {
+export interface ISendLog {
   id: number
   datetime: string // Datetime string
   sender_id: number

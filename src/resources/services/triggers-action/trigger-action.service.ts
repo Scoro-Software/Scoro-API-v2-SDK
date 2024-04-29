@@ -1,7 +1,7 @@
 import { APIClient } from '../../base'
-import { ITriggerAction } from './types/triggers-actions.type'
+import { ITriggerAction } from './types/trigger-action.type'
 
-export class TrigersActionsService extends APIClient {
+export class TriggerActionService extends APIClient {
   async getTriggerActions(): Promise<ITriggerAction[]> {
     return await this.list<ITriggerAction>('triggers')
   }
