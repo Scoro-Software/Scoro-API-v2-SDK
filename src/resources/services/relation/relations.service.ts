@@ -1,15 +1,15 @@
 import { APIClient } from '../../base'
-import { IDeleteRelations, IRelations } from './types/relations.type'
+import { IDeleteRelations, IRelation } from './types/relations.type'
 
-export class RelationsService extends APIClient {
+export class RelationService extends APIClient {
   public async getRelations(
-    request: Partial<IRelations> = {}
-  ): Promise<IRelations> {
+    request: Partial<IRelation> = {}
+  ): Promise<IRelation> {
     return this.callRelations('relations', request)
   }
 
-  public async modifyRelation(request: Partial<IRelations>): Promise<void> {
-    this.customCallWithBody<IRelations>('relations', 'modify', request)
+  public async modifyRelation(request: Partial<IRelation>): Promise<void> {
+    this.customCallWithBody<IRelation>('relations', 'modify', request)
   }
 
   public async deleteRelation(

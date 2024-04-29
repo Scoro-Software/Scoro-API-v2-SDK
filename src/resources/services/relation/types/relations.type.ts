@@ -1,4 +1,4 @@
-export interface IRelations {
+export interface IRelation {
   object_id: number
   related_objects: IObject[] | Record<string, IObject>[]
   type: string

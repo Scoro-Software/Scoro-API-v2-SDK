@@ -1,7 +1,7 @@
 import { APIClient } from '../../base'
 import { IScheduledInvoice } from './types/schedule-invoice.type'
 
-export class ScheduledInvoicesService extends APIClient {
+export class ScheduledInvoiceService extends APIClient {
   async getScheduledInvoice(id: number): Promise<IScheduledInvoice> {
     return await this.view<IScheduledInvoice>('scheduledInvoices', id)
   }

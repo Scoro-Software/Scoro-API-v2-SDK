@@ -1,5 +1,5 @@
 import { APIClient } from '../../base'
-import { IAccountingObject } from './types/accounting-object.type'
+import { IAccountingObject } from './types/finance-object.type'
 
 export class FinanceObjectService extends APIClient {
   async getFinanceObjects(): Promise<IAccountingObject[]> {
