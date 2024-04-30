@@ -5,14 +5,20 @@ export abstract class APIClient {
   protected siteUrl: string
   protected customHeaders: Record<string, string> = {}
   protected payload: IApiPayload
+  protected responseHeaders: Headers | null
 
   constructor(siteUrl: string, payload: IApiPayload) {
     this.siteUrl = siteUrl
     this.payload = payload
+    this.responseHeaders = null
   }
 
   addCustomHeader(key: string, value: string): void {
     this.customHeaders[key] = value
+  }
+
+  getResponseHeaders(): Headers | null {
+    return this.responseHeaders
   }
 
   private validateResponse<T>(response: IViewResponse<T>): void {
@@ -41,6 +47,7 @@ export abstract class APIClient {
     )
 
     const res: IViewResponse<T> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
 
     return res.data
@@ -69,6 +76,7 @@ export abstract class APIClient {
     })
 
     const res: IViewResponse<T[]> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
 
     return res.data
@@ -97,6 +105,7 @@ export abstract class APIClient {
     )
 
     const res: IViewResponse<T> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
     return res.data
   }
@@ -122,6 +131,7 @@ export abstract class APIClient {
     )
 
     const res: IViewResponse<unknown> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
   }
 
@@ -143,6 +153,7 @@ export abstract class APIClient {
     )
 
     const res: IViewResponse<T> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
 
     return res.data
@@ -172,6 +183,7 @@ export abstract class APIClient {
     )
 
     const res: IViewResponse<T> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
 
     return res.data
@@ -196,6 +208,7 @@ export abstract class APIClient {
     })
 
     const res: IViewResponse<T> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
 
     return res.data
@@ -224,6 +237,7 @@ export abstract class APIClient {
     )
 
     const res: IViewResponse<T> = await response.json()
+    this.responseHeaders = response.headers
     this.validateResponse(res)
 
     return res.data
