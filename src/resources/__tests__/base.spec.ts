@@ -304,4 +304,19 @@ describe('APIClient', () => {
       }
     )
   })
+
+  test('get response headers', async () => {
+    const mockResponse = { id: 1, name: 'John Doe' }
+    const mockHeaders = { 'x-total-count': '100' }
+    global.fetch = jest.fn().mockResolvedValue({
+      json: jest
+        .fn()
+        .mockResolvedValue({ statusCode: 200, data: mockResponse }),
+      headers: mockHeaders,
+    })
+
+    await apiClient.callView('users', 1)
+
+    expect(apiClient.getResponseHeaders()).toEqual(mockHeaders)
+  })
 })
