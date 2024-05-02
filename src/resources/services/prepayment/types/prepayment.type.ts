@@ -40,7 +40,7 @@ export interface IPrepayment {
   lines?: IPrepaymentLine[] | null // Document lines, null for list request
   modified_date?: string // The date when document was last modified (YYYY-mm-dd HH:ii:ss)
   created_date?: string // The date and time when document was created (YYYY-mm-dd HH:ii:ss)
-  custom_fields?: Record<string, unknown> // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
   is_deleted?: boolean // Is deleted
   deleted_date?: string // The date when object was deleted (DATE_ISO8601 - Y-m-d\TH:i:sP)
 }
@@ -74,5 +74,5 @@ interface IPrepaymentLine {
   project_id?: number // ID of the related project
   project_name?: string // Name of the related project, available in view request
   vat_code?: string // VAT code, only used if "Use line based tax rates" setting is activated, available in view request
-  custom_fields?: Record<string, unknown> // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
 }

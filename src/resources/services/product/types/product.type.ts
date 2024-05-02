@@ -36,5 +36,5 @@ export interface IProduct {
   purchases_finance_account_id?: number // Product related purchases finance account ID
   is_deleted?: boolean // Is deleted flag
   deleted_date?: string // Date when object was deleted
-  custom_fields?: Record<string, unknown> // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
 }

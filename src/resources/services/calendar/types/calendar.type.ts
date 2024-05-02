@@ -1,5 +1,6 @@
 import { IEventResource } from '../../event-resource/types/events-resorces.types'
 import { IEvent } from '../../shared/types/event.type'
+import { IUser } from '../../user/types/user.type'
 
 export interface ICalendar extends IEvent {
   address: string
@@ -8,13 +9,15 @@ export interface ICalendar extends IEvent {
   full_day_event: boolean
   status: 'busy' | 'free' | 'tentative' | 'outofoffice' | string
   status_name?: string // Available in view request
-  cal_user?: number[] // Users related with this event, populated only on view requests. For modify requests it takes an array of user IDs
+  cal_user?: IUser[] // Users related with this event, populated only on view requests. For modify requests it takes an array of user IDs
   resources?: IEventResource[] // Array of resources related to calendar event, populated only on view requests
   related_task_id?: number // Related Task ID, used when calendar event is related to a task
-  guests?: {
-    contact_id: number
-    guest_email: string
-  }[] // Array of guests linked to calendar event, not filterable
+  guests?:
+    | {
+        contact_id: number
+        guest_email: string
+      }[]
+    | string // Array of guests linked to calendar event, not filterable
   call_link?: string // Conference call link attached to calendar event, not filterable
   activity_id?: number
   activity_type?: string // Activity type, not filterable
