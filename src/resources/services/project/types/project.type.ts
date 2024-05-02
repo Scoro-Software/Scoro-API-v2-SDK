@@ -28,6 +28,6 @@ export interface IProject {
   stripDescription?: boolean // Deprecated, use this argument on view requests, strips HTML from project description field, default value is true
   is_role_based?: boolean // If project is role based or service based, available if roles are turned on
   local_price_list_id?: number // Local price list ID, available for role-based projects
-  custom_fields?: Record<string, unknown> // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
   is_deleted?: boolean // Is deleted, use 'include_deleted = 1' in request object to get deleted objects to response as well
 }

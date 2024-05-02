@@ -2,7 +2,7 @@ export interface IRelation {
   object_id: number
   related_objects: IObject[] | Record<string, IObject>[]
   type: string
-  custom_fields?: Record<string, unknown> // Only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Only filled on view requests
 }
 
 export interface IDeleteRelations {

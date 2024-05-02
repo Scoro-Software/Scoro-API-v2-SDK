@@ -53,7 +53,7 @@ export interface IScheduledInvoice {
   lines?: IScheduledInvoice[] // Document lines
   modified_date: string // The date when document was last modified
   created_date: string // The date and time when document was created
-  custom_fields?: Record<string, unknown> // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
   is_deleted?: boolean // Is deleted
   deleted_date?: string // The date when object was deleted (DATE_ISO8601 - Y-m-d\TH:i:sP)
 }
@@ -88,5 +88,5 @@ interface IScheduledInvoiceLine {
   project_id?: number // ID of the related project
   project_name?: string // Name of the related project
   vat_code?: string // VAT code
-  custom_fields?: Record<string, unknown> // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
 }
