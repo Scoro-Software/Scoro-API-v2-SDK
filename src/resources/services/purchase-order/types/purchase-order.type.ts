@@ -41,7 +41,7 @@ export interface IPurchaseOrder {
   created_date?: string // The date and time when document was created (YYYY-mm-dd HH:ii:ss)
   is_deleted?: boolean // Is deleted
   deleted_date?: string // The date when object was deleted (DATE_ISO8601 - Y-m-d\TH:i:sP)
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }
 
 interface IPurchaseOrderLine {
@@ -69,5 +69,5 @@ interface IPurchaseOrderLine {
   vat_code_id?: number // Line tax id
   vat_code?: string // VAT code
   is_settled?: boolean // If specific Purchase order line is settled (finished) or not
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }
