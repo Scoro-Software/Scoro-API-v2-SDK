@@ -28,7 +28,7 @@ export interface IContact {
   reference_no?: string
   cat_id?: number
   cat_name?: string
-  contact_users?: IContact[] // Contact related users
+  contact_users?: number[] // Contact related users
   related_companies?: {
     related_company_id: number
     related_company_name: string
