@@ -8,7 +8,7 @@ export interface IReceiptGroup {
   receipt_account_id?: number // Receipt account ID
   receipts: Receipt[] // Array of receipts
   modified_date: string // The date when receipt group was last modified in YYYY-mm-dd HH:ii:ss format
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
   is_deleted: boolean // Indicates whether the receipt group is deleted
   deleted_date?: string // The date when object was deleted in DATE_ISO8601 format
 }

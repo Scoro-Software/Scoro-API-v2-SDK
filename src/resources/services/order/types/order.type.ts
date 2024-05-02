@@ -38,7 +38,7 @@ export interface IOrder {
   lines?: IOrderLine[] | null // Array of document lines
   modified_date: string // Date when the document was last modified
   created_date: string // Date and time when the document was created
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
   is_deleted?: boolean // Indicates if the document is deleted
   deleted_date?: string // Date when the document was deleted
 }
@@ -75,5 +75,5 @@ interface IOrderLine {
   doer_email?: string // Email of the user doing the work
   role_name?: string | null // Name of the role doing the work
   dates?: { [date: string]: number } // Object with dates as keys and amounts as values
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }

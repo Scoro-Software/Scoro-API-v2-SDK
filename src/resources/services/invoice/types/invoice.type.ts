@@ -53,7 +53,7 @@ export interface IInvoice {
   lines?: IInvoiceLine[] // Document lines, null for list request and filled for view requests
   modified_date: string // The date when document was last modified (YYYY-mm-dd HH:ii:ss)
   created_date: string // The date and time when document was created (YYYY-mm-dd HH:ii:ss)
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
   is_deleted?: boolean // Is deleted
   deleted_date?: string // The date when object was deleted (DATE_ISO8601 - Y-m-d\TH:i:sP)
 }
@@ -98,5 +98,5 @@ interface IInvoiceLine {
   role_id?: number | null // ID of the role doing the work
   is_internal?: boolean // Shows whether line is counted as internal or external
   project_id?: number // ID of the related project
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }

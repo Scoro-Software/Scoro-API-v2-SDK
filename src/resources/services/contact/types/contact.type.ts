@@ -35,6 +35,6 @@ export interface IContact {
   }[] // Array of related company objects, filled only for contacts of type person
   permissions?: Record<string, unknown>[] // Object user permissions, used only for user-based API
   contact_picture?: string // Contact profile image URL
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
   is_deleted?: boolean // Is deleted, use 'include_deleted = 1' in request object to get deleted objects to response as well
 }

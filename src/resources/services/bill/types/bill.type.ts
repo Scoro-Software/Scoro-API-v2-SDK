@@ -37,7 +37,7 @@ export interface IBill {
   lines?: IBillLine[] | null // Document lines (filled for view requests, null for list requests)
   modified_date: string // Date when document was last modified in YYYY-mm-dd HH:ii:ss format
   created_date: string // Date and time when document was created in YYYY-mm-dd HH:ii:ss format
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
   is_deleted: boolean // Indicates if the document is deleted
   deleted_date?: string // Date when the document was deleted in DATE_ISO8601 format (Y-m-d\TH:i:sP)
 }
@@ -65,5 +65,5 @@ interface IBillLine {
   project_id: number // ID of the related project
   project_name?: string // Name of the related project (available in view request)
   vat_code?: string // VAT code (only used if "Use line based tax rates" setting is activated)
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }

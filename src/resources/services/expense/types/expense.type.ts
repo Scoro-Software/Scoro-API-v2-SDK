@@ -33,7 +33,7 @@ export interface IExpense {
   currency_rate?: number // Exchange rate when invoice is issued
   lines?: IExpenseLine[] | null // Document lines
   is_deleted: boolean // Is deleted
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }
 
 interface IExpenseLine {
@@ -59,5 +59,5 @@ interface IExpenseLine {
   finance_account_symbol?: string // Symbol of the related finance account (if activated)
   project_id?: number // ID of the related project
   project_name?: string // Name of the related project (available in view request)
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }

@@ -41,7 +41,7 @@ export interface IQuote {
   lines?: IQuoteLine[] // Document lines
   modified_date: string // Date when document was last modified in ISO 8601 format
   created_date: string // Date and time when document was created in ISO 8601 format
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
   is_deleted: boolean // If the document is deleted
   deleted_date?: string // Date when object was deleted in ISO 8601 format
 }
@@ -80,5 +80,5 @@ interface IQuoteLine {
   role_id?: number | null // ID of the role doing the work
   is_internal: boolean // Shows whether line is counted as internal or external
   project_id: number // ID of the related project
-  custom_fields?: { id: string; name: string; value: unknown; type: string } // Custom fields, only filled on view requests
+  custom_fields?: { id: string; name: string; value: unknown; type: string }[] // Custom fields, only filled on view requests
 }
