@@ -7,7 +7,7 @@ export class ClientProfileService extends APIClient {
   }
 
   async findAllClientProfilesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IClientProfile[]> {
     return await this.list<IClientProfile>('clientProfiles', filters)
   }

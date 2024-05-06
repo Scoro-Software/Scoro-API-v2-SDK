@@ -18,9 +18,7 @@ export class WebhookService extends APIClient {
     return await this.list<IWebhook>('webhooks')
   }
 
-  async findAllWebhooksBy(
-    filters: Record<string, unknown>
-  ): Promise<IWebhook[]> {
+  async findAllWebhooksBy(filters: Record<string, any>): Promise<IWebhook[]> {
     return await this.list<IWebhook>('webhooks', filters)
   }
 }

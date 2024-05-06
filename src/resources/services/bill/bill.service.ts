@@ -22,7 +22,7 @@ export class BillsService extends APIClient {
     await this.delete('bills', id)
   }
 
-  async findAllBillsBy(filters: Record<string, unknown>): Promise<IBill[]> {
+  async findAllBillsBy(filters: Record<string, any>): Promise<IBill[]> {
     return await this.list<IBill>('bills', filters)
   }
 }

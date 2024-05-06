@@ -6,7 +6,7 @@ export class TagService extends APIClient {
     return await this.list<ITag>('tags')
   }
 
-  async findAllTagBy(filters: Record<string, unknown>): Promise<ITag[]> {
+  async findAllTagBy(filters: Record<string, any>): Promise<ITag[]> {
     return await this.list<ITag>('tags', filters)
   }
 }

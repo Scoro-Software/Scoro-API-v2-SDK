@@ -7,7 +7,7 @@ export class TimeEntryService extends APIClient {
   }
 
   async findAllTimeEntriesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<ITimeEntry[]> {
     return await this.list<ITimeEntry>('timeEntries', filters)
   }

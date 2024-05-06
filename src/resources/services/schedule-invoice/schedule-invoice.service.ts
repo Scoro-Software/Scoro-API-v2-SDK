@@ -28,7 +28,7 @@ export class ScheduledInvoiceService extends APIClient {
   }
 
   async findAllScheduledInvoicesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IScheduledInvoice[]> {
     return await this.list<IScheduledInvoice>('scheduledInvoices', filters)
   }

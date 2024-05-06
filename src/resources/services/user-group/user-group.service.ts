@@ -7,7 +7,7 @@ export class UserGroupService extends APIClient {
   }
 
   async findAllUserGroupsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IUserGroup[]> {
     return await this.list<IUserGroup>('userGroups', filters)
   }

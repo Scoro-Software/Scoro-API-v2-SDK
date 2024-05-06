@@ -39,7 +39,7 @@ export class FileService extends APIClient {
     await this.customCallWithBody('files', 'modify', data)
   }
 
-  async findAllFilesBy(filters: Record<string, unknown>): Promise<IFile[]> {
+  async findAllFilesBy(filters: Record<string, any>): Promise<IFile[]> {
     return await this.list<IFile>('files', filters)
   }
 }

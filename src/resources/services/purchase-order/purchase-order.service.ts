@@ -29,7 +29,7 @@ export class PurchaseOrdersService extends APIClient {
   }
 
   async findAllPurchaseOrdersBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IPurchaseOrder[]> {
     return await this.list<IPurchaseOrder>('purchaseOrders', filters)
   }

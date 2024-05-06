@@ -23,7 +23,7 @@ export class OrdersService extends APIClient {
     await this.delete('orders', id)
   }
 
-  async findAllOrdersBy(filters: Record<string, unknown>): Promise<IOrder[]> {
+  async findAllOrdersBy(filters: Record<string, any>): Promise<IOrder[]> {
     return await this.list<IOrder>('orders', filters)
   }
 

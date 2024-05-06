@@ -6,9 +6,7 @@ export class AddressService extends APIClient {
     return await this.list<IAddress>('addresses')
   }
 
-  async findAllAddressBy(
-    filters: Record<string, unknown>
-  ): Promise<IAddress[]> {
+  async findAllAddressBy(filters: Record<string, any>): Promise<IAddress[]> {
     return await this.list<IAddress>('addresses', filters)
   }
 }

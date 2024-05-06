@@ -27,7 +27,7 @@ export class PrepaymentsService extends APIClient {
   }
 
   async findAllPrepaymentsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IPrepayment[]> {
     return await this.list<IPrepayment>('prepayments', filters)
   }

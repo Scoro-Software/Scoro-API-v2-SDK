@@ -6,7 +6,7 @@ export class StatusService extends APIClient {
     return await this.list<IStatus>('statuses')
   }
 
-  async findAllStatusBy(filters: Record<string, unknown>): Promise<IStatus[]> {
+  async findAllStatusBy(filters: Record<string, any>): Promise<IStatus[]> {
     return await this.list<IStatus>('statuses', filters)
   }
 }

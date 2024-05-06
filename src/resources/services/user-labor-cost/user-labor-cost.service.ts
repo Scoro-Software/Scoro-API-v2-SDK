@@ -18,7 +18,7 @@ export class UserLaborCostService extends APIClient {
   }
 
   async findAllUserLaborCostsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IUserLaborCost[]> {
     return await this.list<IUserLaborCost>('usersLaborCost', filters)
   }

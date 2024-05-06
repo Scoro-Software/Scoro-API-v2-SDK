@@ -55,8 +55,8 @@ export abstract class APIClient {
 
   protected async list<T>(
     endpoint: string,
-    filters: Record<string, unknown> = {},
-    request: Record<string, unknown> = {},
+    filters: Record<string, any> = {},
+    request: Record<string, any> = {},
     perPage = 50
   ): Promise<T[]> {
     const body = {

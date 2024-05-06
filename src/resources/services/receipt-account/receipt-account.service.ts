@@ -7,7 +7,7 @@ export class ReceiptAccountsService extends APIClient {
   }
 
   async findAllReceiptAccountsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IReceiptAccount[]> {
     return await this.list<IReceiptAccount>('receiptAccounts', filters)
   }

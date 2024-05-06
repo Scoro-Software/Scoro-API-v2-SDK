@@ -6,9 +6,7 @@ export class SendLogService extends APIClient {
     return await this.list<ISendLog>('sendLog')
   }
 
-  async findAllSendLogsBy(
-    filters: Record<string, unknown>
-  ): Promise<ISendLog[]> {
+  async findAllSendLogsBy(filters: Record<string, any>): Promise<ISendLog[]> {
     return await this.list<ISendLog>('sendLog', filters)
   }
 }

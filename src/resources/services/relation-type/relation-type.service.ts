@@ -7,7 +7,7 @@ export class RelationTypeService extends APIClient {
   }
 
   async findAllRelationTypesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IRelationType[]> {
     return await this.list<IRelationType>('relationTypes', filters)
   }

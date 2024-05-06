@@ -7,7 +7,7 @@ export class CustomFieldService extends APIClient {
   }
 
   async findAllCustomFieldsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<ICustomField[]> {
     return await this.list<ICustomField>('customFields', filters)
   }
