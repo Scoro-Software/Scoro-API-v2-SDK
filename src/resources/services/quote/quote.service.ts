@@ -23,7 +23,7 @@ export class QuoteService extends APIClient {
     await this.delete('quotes', id)
   }
 
-  async findAllQuotesBy(filters: Record<string, unknown>): Promise<IQuote[]> {
+  async findAllQuotesBy(filters: Record<string, any>): Promise<IQuote[]> {
     return await this.list<IQuote>('quotes', filters)
   }
 

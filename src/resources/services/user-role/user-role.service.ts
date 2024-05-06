@@ -6,9 +6,7 @@ export class UserRoleService extends APIClient {
     return await this.list<IUserRole>('userRoles')
   }
 
-  async findAllUserRolesBy(
-    filters: Record<string, unknown>
-  ): Promise<IUserRole[]> {
+  async findAllUserRolesBy(filters: Record<string, any>): Promise<IUserRole[]> {
     return await this.list<IUserRole>('userRoles', filters)
   }
 

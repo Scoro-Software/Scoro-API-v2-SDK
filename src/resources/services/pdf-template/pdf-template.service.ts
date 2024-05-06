@@ -7,7 +7,7 @@ export class PDFTemplateService extends APIClient {
   }
 
   async findAllPDFTemplatesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IPDFTemplate[]> {
     return await this.list<IPDFTemplate>('customFields', filters)
   }

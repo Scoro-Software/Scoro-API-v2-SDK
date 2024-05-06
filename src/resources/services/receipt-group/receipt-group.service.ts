@@ -18,7 +18,7 @@ export class ReceiptGroupsService extends APIClient {
   }
 
   async findAllReceiptGroupsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IReceiptGroup[]> {
     return await this.list<IReceiptGroup>('receipts', filters)
   }

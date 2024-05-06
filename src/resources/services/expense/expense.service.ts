@@ -26,9 +26,7 @@ export class ExpensesService extends APIClient {
     await this.delete('expenses', id)
   }
 
-  async findAllExpensesBy(
-    filters: Record<string, unknown>
-  ): Promise<IExpense[]> {
+  async findAllExpensesBy(filters: Record<string, any>): Promise<IExpense[]> {
     return await this.list<IExpense>('expenses', filters)
   }
 }

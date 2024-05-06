@@ -26,9 +26,7 @@ export class InvoicesService extends APIClient {
     await this.delete('invoices', id)
   }
 
-  async findAllInvoicesBy(
-    filters: Record<string, unknown>
-  ): Promise<IInvoice[]> {
+  async findAllInvoicesBy(filters: Record<string, any>): Promise<IInvoice[]> {
     return await this.list<IInvoice>('invoices', filters)
   }
 

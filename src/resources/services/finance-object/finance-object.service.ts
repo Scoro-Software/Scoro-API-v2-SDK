@@ -7,7 +7,7 @@ export class FinanceObjectService extends APIClient {
   }
 
   async findAllFinanceObjectsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IAccountingObject[]> {
     return await this.list<IAccountingObject>('financeObjects', filters)
   }

@@ -7,7 +7,7 @@ export class CompanyAccountService extends APIClient {
   }
 
   async findAllCompanyAccountsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<ICompanyAccount[]> {
     return await this.list<ICompanyAccount>('companyAccount', filters)
   }

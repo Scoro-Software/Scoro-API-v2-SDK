@@ -7,7 +7,7 @@ export class RolePriceService extends APIClient {
   }
 
   async findAllRolePricesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<IRolePrice[]> {
     return await this.list<IRolePrice>('rolesPrices', filters)
   }

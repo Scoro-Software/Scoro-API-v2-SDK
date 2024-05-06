@@ -7,7 +7,7 @@ export class TriggerActionService extends APIClient {
   }
 
   async findAllTriggerActionsBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<ITriggerAction[]> {
     return await this.list<ITriggerAction>('triggers', filters)
   }

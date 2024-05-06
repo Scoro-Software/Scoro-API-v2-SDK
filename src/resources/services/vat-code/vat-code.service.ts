@@ -6,9 +6,7 @@ export class VatCodeService extends APIClient {
     return await this.list<IVatCode>('vatCodes')
   }
 
-  async findAllVatCodesBy(
-    filters: Record<string, unknown>
-  ): Promise<IVatCode[]> {
+  async findAllVatCodesBy(filters: Record<string, any>): Promise<IVatCode[]> {
     return await this.list<IVatCode>('vatCodes', filters)
   }
 

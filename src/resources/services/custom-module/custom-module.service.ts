@@ -7,7 +7,7 @@ export class CustomModuleService extends APIClient {
   }
 
   async findAllCustomModulesBy(
-    filters: Record<string, unknown>
+    filters: Record<string, any>
   ): Promise<ICustomModule[]> {
     return await this.list<ICustomModule>('customModules', filters)
   }
