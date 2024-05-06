@@ -1,6 +1,6 @@
 {
   "name": "scoro-api-v2-sdk",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A simple SDK to interact with Scoro API v2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
