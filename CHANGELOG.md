@@ -1,3 +1,20 @@
+# [1.1.0](https://github.com/andrerampanelli/Scoro-API-v2-SDK/compare/v1.0.0...v1.1.0) (2024-06-18)
+
+
+### Bug Fixes
+
+* add package json as an asset ([e1a37a3](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/e1a37a3f6d99d2297593febab4ab2b8a8ef69ad9))
+* adjust release process ci ([1a86bcb](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/1a86bcb2e4d9ba52762feeaad2212e8af4de501a))
+* **semver:** remove extendable configuration, changed some ci ([faad8b8](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/faad8b8a63a19d94659363139f9e3504740467df))
+* **semver:** use clean node commands in ci instead ([4c0e3f2](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/4c0e3f2e77b6c66a866e7fcaa603084fbda5ff37))
+* update setup-node action version and use node lts version ([5324223](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/5324223d96ae0bc65ec6fc4633ea09af7da3bf90))
+* update setup-node version and use node lts on actions ([6ffd03b](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/6ffd03b31ead8797ef9f0339a4f9f6732a8615df))
+
+
+### Features
+
+* add commitlint and update husky ([3b0c5da](https://github.com/andrerampanelli/Scoro-API-v2-SDK/commit/3b0c5daa911931f92aeaf98e944da211e0eddbf0))
+
 # 1.0.0 (2024-06-18)
 
 
