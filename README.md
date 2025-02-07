@@ -50,3 +50,6 @@ const pageTwoUsers = await companySDK.user.getUsers({}, 50, 2)
 
 const firstOneHundred = await companySDK.user.getUsers({}, 100)
 ```
+
+## API Docs
+[https://api.scoro.com](https://api.scoro.com/api/v2)
