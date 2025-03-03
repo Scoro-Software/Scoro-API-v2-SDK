@@ -70,7 +70,8 @@ export abstract class APIClient {
     filters: Record<string, any> = {},
     request: Record<string, any> = {},
     perPage = 50,
-    page = 1
+    page = 1,
+    detailedResponse = true
   ): Promise<T[]> {
     const body = {
       ...this.payload,
@@ -78,7 +79,7 @@ export abstract class APIClient {
       filter: filters,
       per_page: perPage,
       page: page,
-      detailed_response: true,
+      detailed_response: detailedResponse,
     }
 
     const response = await fetch(`${this.siteUrl}/api/v2/${endpoint}/list`, {
