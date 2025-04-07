@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.10.0...v1.11.0) (2025-04-07)
+
+
+### Features
+
+* fix external_meta_data to IExternalData ([92686a6](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/92686a61af70b581bcf4f2c379a05137f95fad82))
+
 # [1.10.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.9.0...v1.10.0) (2025-04-07)
 
 
