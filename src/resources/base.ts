@@ -1,5 +1,9 @@
 import type { IApiPayload } from './types/api.type'
-import type { IViewResponse } from './types/response.type'
+import type {
+  IBatchResponse,
+  IBatchResponseData,
+  IViewResponse,
+} from './types/response.type'
 
 export abstract class APIClient {
   protected siteUrl: string
@@ -29,7 +33,9 @@ export abstract class APIClient {
     return headers
   }
 
-  private validateResponse<T>(response: IViewResponse<T>): void {
+  private validateResponse<T>(
+    response: IViewResponse<T> | IBatchResponse<T>
+  ): void {
     if (response.errors || response.statusCode !== 200) {
       try {
         throw new Error(
@@ -131,6 +137,33 @@ export abstract class APIClient {
     object: Partial<T> | Record<string, unknown>
   ): Promise<T> {
     return await this.update(endpoint, 0, object)
+  }
+
+  protected async batch<T>(
+    endpoint: string,
+    objects: Partial<T>[] | Record<string, unknown>[]
+  ): Promise<IBatchResponseData<T>[]> {
+    const body = {
+      ...this.payload,
+      request: objects,
+    }
+    const response = await fetch(
+      `${this.siteUrl}/api/v2/${endpoint}/batchModify`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...this.customHeaders,
+        },
+        body: JSON.stringify(body),
+      }
+    )
+
+    const res: IBatchResponse<T> = await response.json()
+    this.responseHeaders = response.headers
+    this.validateResponse(res)
+
+    return res.data ?? []
   }
 
   protected async delete(endpoint: string, id: number): Promise<void> {

@@ -1,3 +1,31 @@
+# [1.11.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.10.0...v1.11.0) (2025-04-07)
+
+
+### Features
+
+* fix external_meta_data to IExternalData ([92686a6](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/92686a61af70b581bcf4f2c379a05137f95fad82))
+
+# [1.10.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.9.0...v1.10.0) (2025-04-07)
+
+
+### Features
+
+* add external_meta_data to IExternalData ([3176a63](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/3176a63547d6b6c6cb47c0cbc91b786bb0b6b831))
+
+# [1.9.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.8.0...v1.9.0) (2025-03-24)
+
+
+### Features
+
+* add external repeating event id and uid to external data to group external events ([9e5f7eb](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/9e5f7eb02b1f4c98fa083867387e6ee1e5c68a1a))
+
+# [1.8.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.7.0...v1.8.0) (2025-03-06)
+
+
+### Features
+
+* add batch upsert support for calendar events, repeat_id and external_data fields to ICalendar ([20fee07](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/20fee072e35d8ba77943046979e2582dddeadc9b))
+
 # [1.7.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.6.0...v1.7.0) (2025-02-18)
 
 

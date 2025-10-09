@@ -1,5 +1,6 @@
 import { APIClient } from '@/resources/base'
 import { ICalendar } from './types/calendar.type'
+import { IBatchResponseData } from '@/resources/types/response.type'
 
 export class CalendarService extends APIClient {
   async getCalendarEvents(): Promise<ICalendar[]> {
@@ -35,6 +36,12 @@ export class CalendarService extends APIClient {
     data: Partial<ICalendar>
   ): Promise<ICalendar> {
     return await this.update<ICalendar>('calendar', id, data)
+  }
+
+  async batchUpsertCalendar(
+    data: Partial<ICalendar>[]
+  ): Promise<IBatchResponseData<ICalendar>[]> {
+    return await this.batch<ICalendar>('calendar', data)
   }
 
   async deleteCalendar(id: number): Promise<void> {

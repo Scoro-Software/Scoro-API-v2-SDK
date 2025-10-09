@@ -4,6 +4,7 @@ export interface IUser {
   firstname: string
   lastname: string
   full_name: string
+  name?: string // Field for full name in some list responses with detailedResponse = false
   initials: string
   email: string
   is_active?: boolean // Deprecated
