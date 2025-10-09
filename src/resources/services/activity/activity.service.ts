@@ -5,9 +5,17 @@ export class ActivityService extends APIClient {
   async getActivities(
     query: Record<string, any> = {},
     perPage = 50,
-    page = 1
+    page = 1,
+    detailedResponse = true
   ): Promise<IActivity[]> {
-    return await this.list<IActivity>('activities', query, {}, perPage, page)
+    return await this.list<IActivity>(
+      'activities',
+      query,
+      {},
+      perPage,
+      page,
+      detailedResponse
+    )
   }
 
   async getActivity(id: number): Promise<IActivity> {
