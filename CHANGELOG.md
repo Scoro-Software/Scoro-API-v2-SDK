@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.11.0...v1.12.0) (2025-10-09)
+
+
+### Features
+
+* make detailed_response configurable for activities list ([8942b19](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/8942b19a6b3f8f3839b590544111bb074b30622b))
+
 # [1.11.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.10.0...v1.11.0) (2025-04-07)
 
 
