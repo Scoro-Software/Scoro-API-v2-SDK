@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.12.0...v1.12.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* get semantic-release wrking with "Trusted publishing" ([ddf047d](https://github.com/Scoro-Software/Scoro-API-v2-SDK/commit/ddf047da8300325ba8ecb9f166a2bf4ec470d562))
+
 # [1.12.0](https://github.com/Scoro-Software/Scoro-API-v2-SDK/compare/v1.11.0...v1.12.0) (2025-10-09)
 
 
