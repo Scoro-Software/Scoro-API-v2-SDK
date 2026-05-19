@@ -23,6 +23,7 @@ import { OrdersService } from '@/services/order/order.service'
 import { PDFTemplateService } from '@/services/pdf-template/pdf-template.service'
 import { PrepaymentsService } from '@/services/prepayment/prepayment.service'
 import { PriceListService } from '@/services/price-list/price-list.service'
+import { ProductService } from '@/services/product/product.service'
 import { ProductGroupService } from '@/services/product-group/product-group.service'
 import { ProjectPhaseService } from '@/services/project-phase/project-phase.service'
 import { ProjectService } from '@/services/project/project.service'
@@ -75,7 +76,7 @@ export class ScoroUserAPI {
   readonly pdfTemplate: PDFTemplateService
   readonly prepayment: PrepaymentsService
   readonly priceList: PriceListService
-  readonly product: ProjectService
+  readonly product: ProductService
   readonly productGroup: ProductGroupService
   readonly project: ProjectService
   readonly projectPhase: ProjectPhaseService
@@ -143,7 +144,7 @@ export class ScoroUserAPI {
     this.pdfTemplate = new PDFTemplateService(config.siteUrl, serviceConfig)
     this.prepayment = new PrepaymentsService(config.siteUrl, serviceConfig)
     this.priceList = new PriceListService(config.siteUrl, serviceConfig)
-    this.product = new ProjectService(config.siteUrl, serviceConfig)
+    this.product = new ProductService(config.siteUrl, serviceConfig)
     this.productGroup = new ProductGroupService(config.siteUrl, serviceConfig)
     this.project = new ProjectService(config.siteUrl, serviceConfig)
     this.projectPhase = new ProjectPhaseService(config.siteUrl, serviceConfig)
@@ -206,7 +207,7 @@ export class ScoroCompanyAPI {
   readonly pdfTemplate: PDFTemplateService
   readonly prepayment: PrepaymentsService
   readonly priceList: PriceListService
-  readonly product: ProjectService
+  readonly product: ProductService
   readonly productGroup: ProductGroupService
   readonly project: ProjectService
   readonly projectPhase: ProjectPhaseService
@@ -274,7 +275,7 @@ export class ScoroCompanyAPI {
     this.pdfTemplate = new PDFTemplateService(config.siteUrl, serviceConfig)
     this.prepayment = new PrepaymentsService(config.siteUrl, serviceConfig)
     this.priceList = new PriceListService(config.siteUrl, serviceConfig)
-    this.product = new ProjectService(config.siteUrl, serviceConfig)
+    this.product = new ProductService(config.siteUrl, serviceConfig)
     this.productGroup = new ProductGroupService(config.siteUrl, serviceConfig)
     this.project = new ProjectService(config.siteUrl, serviceConfig)
     this.projectPhase = new ProjectPhaseService(config.siteUrl, serviceConfig)
