@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: scoro-api-v2-sdk
+  title: Scoro API v2 SDK
+  description: TypeScript SDK that wraps Scoro API v2 for Node.js integrations, published to npm as scoro-api-v2-sdk.
+  annotations:
+    github.com/project-slug: Scoro-Software/Scoro-API-v2-SDK
+  links:
+    - url: https://www.npmjs.com/package/scoro-api-v2-sdk
+      title: npm package
+  tags:
+    - nodejs
+    - open-source
+    - sdk
+spec:
+  type: library
+  lifecycle: production
+  owner: group:default/platform-team
